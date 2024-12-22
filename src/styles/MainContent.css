@@ -1,0 +1,269 @@
+/* Main content container */
+.main-content {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(
+    135deg,
+    #7aaed6,
+    #4682b4
+  ); /* Light gradient background */
+  overflow: hidden;
+}
+
+/* Snowflake container */
+.snowflakes {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0; /* Behind all content */
+  pointer-events: none; /* Non-interactive */
+}
+
+/* Individual snowflake styling */
+.snowflake {
+  position: absolute;
+  top: calc(var(--random-y, 50) * 1%);
+  left: calc(var(--random-x, 50) * 1%);
+  font-size: calc(var(--random-size, 1.5) * 1rem);
+  color: white;
+  opacity: 0;
+  animation: flash 5s infinite ease-in-out;
+  animation-delay: calc(var(--random-delay, 0) * 1s);
+}
+
+/* Flashing animation */
+@keyframes flash {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Text Box Styling */
+.text-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(
+    135deg,
+    #ffcccb,
+    #ff9999
+  ); /* Pink gradient background */
+  padding: 20px 40px;
+  border: 3px solid #fff;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Drop shadow */
+  text-align: center;
+  z-index: 3; /* Above snowflakes and images */
+}
+
+.text-box h1 {
+  font-family: "Comic Sans MS", cursive, sans-serif; /* Fun font for the message */
+  font-size: 24px;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Subtle text shadow */
+  margin: 0;
+}
+
+/* Image frame styling */
+.image-frame {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border: 3px solid #333;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  z-index: 2; /* Ensure images are below the message but above snowflakes */
+}
+
+/* Prevent images from overlapping with the text box */
+.image-frame:nth-child(1) {
+  top: 7%;
+  left: 12%;
+}
+
+.image-frame:nth-child(2) {
+  top: 21%;
+  left: 37%;
+}
+
+.image-frame:nth-child(3) {
+  top: 33%;
+  left: 59%;
+}
+
+.image-frame:nth-child(4) {
+  top: 48%;
+  left: 72%;
+}
+
+.image-frame:nth-child(5) {
+  top: 62%;
+  left: 18%;
+}
+
+.image-frame:nth-child(6) {
+  top: 75%;
+  left: 43%;
+}
+
+.image-frame:nth-child(7) {
+  top: 80%;
+  left: 65%;
+}
+
+.image-frame:nth-child(8) {
+  top: 24%;
+  left: 85%;
+}
+
+.image-frame:nth-child(9) {
+  top: 12%;
+  left: 60%;
+}
+
+.image-frame:nth-child(10) {
+  top: 90%;
+  left: 30%;
+}
+
+.image-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Hover effect for images */
+.image-frame:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .text-box h1 {
+    font-size: 20px; /* Slightly smaller font on mobile */
+  }
+
+  .image-frame {
+    width: 80px; /* Smaller size for smaller screens */
+    height: 80px;
+  }
+
+  /* Adjust specific positions for smaller screens */
+  .image-frame:nth-child(1) {
+    top: 10%;
+    left: 8%;
+  }
+
+  .image-frame:nth-child(2) {
+    top: 23%;
+    left: 32%;
+  }
+
+  .image-frame:nth-child(3) {
+    top: 36%;
+    left: 50%;
+  }
+
+  .image-frame:nth-child(4) {
+    top: 50%;
+    left: 68%;
+  }
+
+  .image-frame:nth-child(5) {
+    top: 60%;
+    left: 25%;
+  }
+
+  .image-frame:nth-child(6) {
+    top: 72%;
+    left: 45%;
+  }
+
+  .image-frame:nth-child(7) {
+    top: 83%;
+    left: 60%;
+  }
+
+  .image-frame:nth-child(8) {
+    top: 20%;
+    left: 80%;
+  }
+
+  .image-frame:nth-child(9) {
+    top: 15%;
+    left: 50%;
+  }
+
+  .image-frame:nth-child(10) {
+    top: 88%;
+    left: 35%;
+  }
+}
+
+/* Modal overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Dark semi-transparent background */
+  backdrop-filter: blur(5px); /* Blur effect */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 4; /* Above everything else */
+}
+
+/* Modal content */
+.modal-content {
+  display: flex;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  width: 90%; /* Increased the modal's width */
+  max-width: 1200px; /* Ensure it doesn’t grow too large */
+  height: 80%; /* Increased height */
+  z-index: 5;
+}
+
+/* Modal image */
+.modal-image {
+  width: 60%; /* Takes up bulk of the modal */
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Modal textbox styling */
+.modal-textbox {
+  width: 40%; /* Matches the height of the image */
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f9f9f9;
+  font-family: "Comic Sans MS", cursive, sans-serif; /* Same font as the birthday message */
+  font-size: 18px;
+  line-height: 1.8; /* Increased line spacing for readability */
+  text-align: center;
+  color: #333;
+  border-left: 3px solid #ddd; /* Optional: adds a subtle divider from the image */
+}
+
+/* Close modal on click outside */
+.modal-overlay:hover {
+  cursor: pointer;
+}
