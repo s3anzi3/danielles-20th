@@ -1,30 +1,32 @@
 {
-  "name": "danielles-20th",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^5.17.0",
-    "@testing-library/react": "^12.1.5",
-    "@testing-library/user-event": "^13.5.0",
-    "ajv": "^8.17.1",
-    "ajv-keywords": "^5.1.0",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "react-router-dom": "^6.28.1",
-    "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4"
+  "name": "danielles20th",
+  "version": "1.0.0",
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "homepage": "https://github.com/",
+  "bugs": {
+    "url": "https://github.com/s3anzi3/danielles-20th/issues"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/s3anzi3/danielles-20th.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "index.js",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+  "dependencies": {
+    "ajv": "^6.12.6",
+    "ajv-keywords": "^3.5.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^7.1.0",
+    "react-scripts": "^5.0.1"
   },
   "browserslist": {
     "production": [
